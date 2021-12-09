@@ -1,26 +1,35 @@
+#include <stdio.h>
+#include <ctype.h>
 #include "scanner.h"
 
-int get_token(char* buffer){
+int get_token(){
 	int estado_inicial = 0;
     char caracter = getchar();
-    while (caracter != EOF){
-    	if(caracter == SEP){
-    		buffer[0]=caracter;
-    		buffer[1]='\0';
+    if (caracter != EOF){
+    	
+    	while(isspace(caracter)){
+    		caracter = getchar();
+    	}
+		if(caracter == ','){
+    		buffer[0] = ',';
     		return SEP;
-		}else if(caracter == FDT){
-			return FDT;
-		}else {
+		}else{
 			do{
 				buffer[estado_inicial] = caracter;
 				estado_inicial++;
 				caracter = getchar();
-			}while(!isspace(caracter));
-			buffer[estado_inicial]='\0';
+			}while(isString(caracter));;
 			ungetc(caracter,stdin);
 			return CAD;
 		}
 	}
+	return FDT;
+}
+
+int isString(char caracter){
+	if(caracter == ',' || caracter == EOF || isspace(caracter)){
+		return 0;
+	}return 1;
 }
     	
     
