@@ -1,10 +1,9 @@
 #include "scanner.h"
 #include "scanner.c"
 
-int main(int argc, const char *argv[]){
+int main(){
 	int token;
-	do
-	{ 
+	do{ 
 	    token = get_token();
 		switch (token){
 		case SEP:
@@ -14,11 +13,10 @@ int main(int argc, const char *argv[]){
 		    printf("Cadena: %s\n", buffer);
 			break;
 		case FDT:
-		    printf("Fin de texto");
+			printf("Fin de texto: ");
 			break;
-		}
-		
-	} while (token != FDT);
+	}
+	}while(token != FDT);
 	
-} 
+}
 

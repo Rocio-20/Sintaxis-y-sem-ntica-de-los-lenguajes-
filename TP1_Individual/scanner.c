@@ -23,7 +23,9 @@ int get_token(){
 			return CAD;
 		}
 	}
+	
 	return FDT;
+	
 }
 
 int isString(char caracter){

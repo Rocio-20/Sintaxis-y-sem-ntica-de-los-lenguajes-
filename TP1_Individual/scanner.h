@@ -8,7 +8,7 @@ enum token{SEP,CAD,FDT};
 int get_token();
 int isString(char caracter);
 
-char buffer [140];
+char buffer [200];
 
 
 #endif
